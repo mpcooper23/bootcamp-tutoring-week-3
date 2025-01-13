@@ -1,27 +1,33 @@
-// Problem #1 // filter
+// Problem #1 //
 function getIncompleteTasks(){
     
 }
-// use recursion to create a map
-function mapTasks(array, output=[]){
-    if (array.length === 0){
-        return output;
-    }
-    let status;
-    if (array[0].completed === true){
-        status = 'Complete';
-    } else {
-        status = 'Incomplete'
-    };
-    output.push(`${array[0].task} - Status: ${status}`);
-    return mapTasks(array.slice(1), output);
+// Problem #2 //
+function mapTasks(){
+    
 }
 
-console.log(mapTasks(tasks));
+// Problem #3 //
+function getTasksByFrequency(){
+   
+}
 
-// use recursion to create a string
+// Problem #4 //
+function getTask(){
+    
+}
 
-// use recursion to find an item
+
+// Problem #5 //
+function getTasksWithTag(array){
+   
+}
+
+// Problem #6 //
+function getObjects(array){
+
+};
+
 
 // use recursion to create an object
 

@@ -13,4 +13,8 @@ mapTasks(tasks);
 ]
 */
 ```
-3. 
+3. Create a function called `getTasksByFrequency` that takes in two parameters - `array` & `frequency`; `array` represents an array of task objects like the one shown in data.js; `frequency` represents a string of how often a tasks recurs. This function should use recursion to return a new array of the task names that recur at the input frequency.
+```javascript
+// example output
+getTasksByFrequency(tasks, 'Weekly'); // => ['Feed cat', 'Get groceries', 'Do dishes']
+```
