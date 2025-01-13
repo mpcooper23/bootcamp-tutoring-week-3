@@ -72,7 +72,16 @@ function getTasksByFrequency(){
  * the function should return a string like this: `Task: <not found>`.
  */
 function getTask(){
-    
+    if (array.length === 0) {
+        return `Task: <not found>`; // Base case: return not found if the array is empty
+    }
+
+    const currentTask = array[0];
+    if (currentTask.name === task) {
+        return `Task: ${currentTask.name}`; // Return the task name if it matches
+    }
+
+    return getTask(array.slice(1), task); // Recursive case
 }
 
 
@@ -87,7 +96,10 @@ function getTask(){
  */
 
 function getTasksWithTag(array){
-   
+    return array.reduce((result, task) => {
+        const lastTag = task.tags[task.tags.length - 1] || ''; // Get the last tag or an empty string if no tags
+        return result + `${task.name} (${lastTag})\n`; // Append formatted string to the result
+    }, '');
 }
 
 // Problem #6 //
@@ -101,5 +113,12 @@ function getTasksWithTag(array){
  */
 
 function getObjects(array){
-    
+    if (array.length === 0) {
+        return result; // Base case: return the accumulated result object if the input array is empty
+    }
+
+    const currentTask = array[0];
+    result[currentTask.name] = `${currentTask.frequency} - ${currentTask.priority}`;
+
+    return getObjects(array.slice(1), result); // Recursive case
 };
