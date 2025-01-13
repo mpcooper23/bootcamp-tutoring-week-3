@@ -95,7 +95,7 @@ describe ("Recursion Practice", function(){
         it('should return a string', function(){
             assert.equal(typeof getTasksWithTag(tasks), 'string');
         });
-        it('should return a correct string ', function(){
+        it('should return a correct string', function(){
             const result = getTasksWithTag(tasks);
             const correct = 'Feed cat (physical)\nGet groceries (physical)\nOrder pet medication (internet)\nPay rent (internet)\nDo dishes (long)\n'
             assert.equal(result, correct);
@@ -109,6 +109,35 @@ describe ("Recursion Practice", function(){
                 func.restore();
             }
         });
+
+    });
+
+        describe("getObjects()", function(){
+            it('should return an object', function(){
+                assert.equal(typeof getObjects(tasks), 'object');
+                assert.equal(Array.isArray(getObjects(tasks)), false);
+                assert.equal(getObjects(tasks) !== null, true);
+            });
+            it('should return a correct object', function(){
+                const result = getObjects(tasks);
+                const correct = {
+                    'Feed cat': 'Weekly - Priority: 1', 
+                    'Get groceries': 'Weekly - Priority: 2', 
+                    'Order pet medication': 'Monthly - Priority: 3', 
+                    'Pay rent': 'Monthly - Priority: 4', 
+                    'Do dishes': 'Weekly - Priority: 5'
+                }
+                assert.deepEqual(result, correct);
+            });
+            it('should use recursion', function(){
+                const func = sinon.spy(window, 'getObjects');
+                try {
+                    func(tasks);
+                    assert.isAbove(func.callCount, 1);
+                } finally {
+                    func.restore();
+                }
+            });
     });
 
 
