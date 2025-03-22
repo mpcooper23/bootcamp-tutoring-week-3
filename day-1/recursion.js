@@ -49,7 +49,7 @@ output.push(array[0])
  * task names that recur at the input frequency.
  */
 
-function getTasksByFrequency(){
+function getTasksByFrequency(array, output = []){
     if (array.length === 0) {
         return output; // Base case: return the accumulated output array if the input array is empty
     }
@@ -71,7 +71,7 @@ function getTasksByFrequency(){
  * the function should return a string like this: `Task: <TASK NAME>`; if the input task is not found, 
  * the function should return a string like this: `Task: <not found>`.
  */
-function getTask(){
+function getTask(array, output = []){
     if (array.length === 0) {
         return `Task: <not found>`; // Base case: return not found if the array is empty
     }
